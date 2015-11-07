@@ -45,3 +45,5 @@ Temporary Items
 # cordova build folders
 platforms/
 plugins/
+
+config.xml
