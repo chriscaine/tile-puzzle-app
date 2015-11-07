@@ -1,0 +1,61 @@
+﻿html { width:340px;}
+body { margin:0px; padding: 0px;
+  background-color:#444;
+       font-family: Tahoma;
+}
+
+
+#puzzle-wrapper 
+{
+    margin:5% auto;
+    position:relative;
+    width:280px;
+    height:280px;
+    overflow:hidden;
+    border:solid 1px rgba(0,0,0,0.2);
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+    }
+    
+.tile 
+{
+    position:absolute;
+    width: 70px;
+    height:70px;
+    overflow:hidden;
+    background-color:#bb4444;
+    background-repeat:no-repeat;
+    background-image:url(../img/example.jpg);
+    cursor:pointer;
+    }
+
+.tile-img 
+{
+    position:absolute;
+    cursor:pointer;
+    }
+
+#moves 
+{
+    text-align:center;
+    }
+    
+   #images 
+   {
+       float:left;
+        width:70px;
+        margin:5px;
+        padding: 10px;
+        background-color:#ddd;
+       }
+   #images img 
+   {
+       width:70px;
+       height: 70px;
+       cursor:pointer;
+       }
+       
+       #container 
+       {
+           margin: auto;
+           width:380px;
+       }
