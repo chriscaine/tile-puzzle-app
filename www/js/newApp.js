@@ -33,6 +33,15 @@ shuffle();
 
 var Slide = function (e) {
     console.log(e, tiles[e.index]);
+
+
+    // get tile by Home (original index)
+
+    // check if new position is clear
+
+    // move tile
+
+
     if (tiles[e.index]) {
 
     
