@@ -37,14 +37,16 @@ var shuffle = function () {
     createTiles();
    // shuffle();
     console.log(tiles);
-
+    var inRange = function (i) {
+        return i > 0 && i < 17;
+    }
 
 var Slide = function (e) {
     console.log(e, tiles[e.index]);
 
     var tile = tiles[e.index];
-
-    if (!tiles.tileWithAttr('Index', tile.Index + e.direction)) {
+    var newIndex = tile.Index + e.direction;
+    if (!tiles.tileWithAttr('Index', newIndex) && inRange(newIndex)) {
         tiles[e.index].Move(e.direction);
     };
     // get tile by Home (original index)
@@ -68,8 +70,8 @@ var touchStart = events.Bus.filter(events.ByEventType(events.Type.TouchStart));
 var touchMove = events.Bus.map(monitorTouch.Setup)
                                .map(monitorTouch.Move)
                                .filter(events.ByEventType(events.Type.TouchMove))
-                               .skip(4)
-                               .skipDuplicates(monitorTouch.IsEqual)
+                            //   .skip(4)
+                            //   .skipDuplicates(monitorTouch.IsEqual)
                                //.filter(events.PreventDefault)
                                //.filter(monitorTouch.Use)
                                .map(monitorTouch.MapToIndex);     // events.Bus.filter(Events.ByEventType(Events.Type.TouchMove));
