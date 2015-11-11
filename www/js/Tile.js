@@ -3,8 +3,10 @@ var Tile = function (index) {
     this._tileSize = 70;
     this.Home = index;
     this.Index = index;
-    this._element = $('<div />', { 'class': 'tile', 'data-index' : index });
-    // set up image position
+    this._element = document.createElement('div');
+    this._element.setAttribute('class', 'tile');
+    this._element.setAttribute('data-index', index);
+     // set up image position
     this._getColumn = function() {
         return this.Index % 4 === 0  ? 4 : this.Index % 4;
     }
@@ -18,8 +20,9 @@ var Tile = function (index) {
     this._getBgPos = function (val) {
         return this._getPos(val) * -1;
     }
-
-    this._element.css('background-position', this._getBgPos(this._getColumn()) + 'px ' + this._getBgPos(this._getRow()) + 'px').text(this.Index);
+    this._element.style.backgroundPositionX = this._getBgPos(this._getColumn()) + 'px';
+    this._element.style.backgroundPositionY = this._getBgPos(this._getRow()) + 'px';
+    this._element.innerText = index;
     this.SetPositionFromIndex();
     return this;
 }
@@ -45,8 +48,6 @@ Tile.prototype.SetIndex = function (i) {
 }
 
 Tile.prototype.SetPositionFromIndex = function () {
-    this._element.css({
-        left: this._getPos(this._getColumn()),
-        top: this._getPos(this._getRow())
-    });
+    this._element.style.left = this._getPos(this._getColumn()) + 'px';
+    this._element.style.top = this._getPos(this._getRow()) + 'px';
 }

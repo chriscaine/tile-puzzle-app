@@ -1,55 +1,58 @@
-﻿Array.prototype.indexOfAttr = function (attr, val) {
-    for (var i = 0; i < this.length; i += 1) {
-        if (this[i][attr] === val) {
-            return i;
+﻿
+Object.prototype.tileWithAttr = function (attr, val) {
+    for (var key in this) {
+        if (this[key][attr] === val) {
+            return this[key];
         }
     }
-    return -1;
+    return false;
 }
-var tiles = [];
-
+var tiles = {};
+var wrapper = document.getElementById('puzzle-wrapper');
 function createTiles() {
-    for (var i = 0; i < 15; i+=1) {
-        tiles.push(new Tile(i+1));
-        tiles[i].GetElement().appendTo('#puzzle-wrapper');
+    for (var i = 1; i < 16; i += 1) {
+        tiles[i] = new Tile(i);
+        wrapper.appendChild(tiles[i].GetElement());
     }
 }
 var shuffle = function () {
     var sortArr = [];
     for (var i = 1; i < 16; i += 1) {
         sortArr.push(i);
-        console.log(i);
     }
     sortArr.sort(function () { return 0.5 - Math.random(); });
     console.log(sortArr);
-    for (i = 0; i < sortArr.length; i += 1) {
-        tiles[i].SetIndex(sortArr[i]);
+    for (var key in tiles) {
+        if (!isNaN(key)) {
+            tiles[key].SetIndex(sortArr[parseInt(key)-1]);
+            console.log(tiles[key]);
+        }
+        
+
     }
 
 }
 
-createTiles();
-shuffle();
+
+    createTiles();
+   // shuffle();
+    console.log(tiles);
+
 
 var Slide = function (e) {
     console.log(e, tiles[e.index]);
 
+    var tile = tiles[e.index];
 
+    if (!tiles.tileWithAttr('Index', tile.Index + e.direction)) {
+        tiles[e.index].Move(e.direction);
+    };
     // get tile by Home (original index)
 
     // check if new position is clear
 
     // move tile
 
-
-    if (tiles[e.index]) {
-
-    
-        var newIndex = tiles[e.index].Index + e.direction;
-        if (tiles.indexOfAttr('Index', newIndex) > -1) {
-            tiles[e.index - 1].Move(e.direction);
-        }
-    }
     // test if complete
     // store positions
 }
