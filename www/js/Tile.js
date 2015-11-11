@@ -22,9 +22,12 @@ var Tile = function (index) {
     }
     this._element.style.backgroundPositionX = this._getBgPos(this._getColumn()) + 'px';
     this._element.style.backgroundPositionY = this._getBgPos(this._getRow()) + 'px';
-    this._element.innerText = index;
+  //  this._element.innerText = index;
     this.SetPositionFromIndex();
     return this;
+}
+Tile.prototype.IsHome = function () {
+    return this.Home === this.Index;
 }
 
 Tile.prototype.GetElement = function () {

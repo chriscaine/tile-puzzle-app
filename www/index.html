@@ -18,30 +18,31 @@
     under the License.
 -->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/puzzle.css" />
-        <title>Tile Puzzle</title>
-    </head>
-    <body>
-        <div class="app">
-            <div style="display:none;" id="images"></div>
-            <div style="display:none;" id="instructions"><h2>Complete the puzzle</h2></div>
-            <div id="puzzle-wrapper"></div>
-            <h3 style="display:none;"><span id="moves">Number of</span> moves</h3>
-            <div id="container">
-            </div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/puzzle.css" />
+    <title>Tile Puzzle</title>
+</head>
+<body>
+    <div class="app">
+        <h1>Tile Puzzle Slide the tiles to complete the game</h1>
+        <div id="puzzle-wrapper"></div>
+        <div>
+            <button type="button" class="pure-button" onclick="tiles.Shuffle()">Shuffle</button>
+            <button type="button" class="pure-button" onclick="tiles.Complete()">Complete</button>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script src="js/jquery-1.7.2.min.js"></script>
-        <script src="js/Bacon.js"></script>
-        <script src="js/Events.js"></script>
-        <script src="js/Tile.js"></script>
-        <script src="js/MonitorTouch.js"></script>
-        <script type="text/javascript" src="js/newApp.js"></script>
-    </body>
+        <div class="tick"></div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/Bacon.js"></script>
+    <script src="js/Events.js"></script>
+    <script src="js/Tile.js"></script>
+    <script src="js/MonitorTouch.js"></script>
+    <script type="text/javascript" src="js/newApp.js"></script>
+</body>
 </html>
