@@ -4,11 +4,17 @@ body { margin:0px; padding: 0px;
        font-family: 'Droid Sans', 'Calibri Light', Helvetica, sans-serif;
 }
 
-h1{
+h1, h2{
     color:#fff;
     font-size:30px;
     font-weight:100;
     text-align:center;
+    margin-top:0; 
+    margin-bottom:0;
+}
+h2{
+    font-size:20px;
+    margin-bottom:40px;
 }
 
 #puzzle-wrapper 
@@ -33,6 +39,8 @@ h1{
     background-image:url(../img/example.jpg);
     cursor:pointer;
     transition: all .2s ease-out;
+    box-sizing:border-box;
+    border-style:groove;
     }
 
 .tile-img 
@@ -170,5 +178,10 @@ a.pure-button-selected {
 .pure-button {
     display:block;
     width:80%;
-    margin: 30px auto;
+    margin: 20px auto;
+    
+}
+.pure-button:first-of-type{
+    margin-top:50px;
+    
 }
